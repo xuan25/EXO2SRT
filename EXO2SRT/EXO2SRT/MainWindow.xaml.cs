@@ -48,7 +48,7 @@ namespace EXO2SRT
                 Match exoInfoMatch = Regex.Match(content, @"\[exedit\]\r\nwidth=[0-9]+\r\nheight=[0-9]+\r\nrate=(?<FrameRate>[0-9]+)\r\nscale=[0-9]+\r\nlength=[0-9]+\r\naudio_rate=[0-9]+\r\naudio_ch=[0-9]+\r\n");
                 TextItem.FrameRate = int.Parse(exoInfoMatch.Groups["FrameRate"].Value);
 
-                MatchCollection textItemMatchCollection = Regex.Matches(content, @"\[[0-9]+\]\r\nstart=(?<StartFrame>[0-9]+)\r\nend=(?<EndFrame>[0-9]+)\r\nlayer=[0-9]+\r\noverlay=[0-9]+\r\ncamera=[0-9]+\r\n\[[0-9]+\.0\]\r\n_name=文本[\s\S]+?text=(?<Code>[0-9a-z]+)\r\n\[[0-9]+.1\]\r\n_name=标准变换[\s\S]+?blend=[0-9]+");
+                MatchCollection textItemMatchCollection = Regex.Matches(content, @"\[[0-9]+\]\r\nstart=(?<StartFrame>[0-9]+)\r\nend=(?<EndFrame>[0-9]+)\r\nlayer=[0-9]+\r\noverlay=[0-9]+\r\ncamera=[0-9]+\r\n\[[0-9]+\.0\]\r\n_name=文本[\s\S]+?text=(?<Code>[0-9a-z]+)");
                 List<TextItem> textItemlist = new List<TextItem>();
                 foreach (Match m in textItemMatchCollection)
                 {
